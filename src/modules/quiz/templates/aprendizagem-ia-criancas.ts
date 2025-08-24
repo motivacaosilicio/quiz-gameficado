@@ -1,5 +1,5 @@
 // Template para quiz de Aprendizagem IA para Crianças
-import { QuestionData, QuizTemplate } from '../types';
+import { QuizTemplate } from '../types';
 
 // Define question types
 export const quizTemplate: QuizTemplate = {

@@ -46,7 +46,7 @@ export enum EventType {
 export interface QuizEvent {
   type: EventType;
   stepId?: string;
-  data?: any;
+  data?: unknown;
 }
 
 /**

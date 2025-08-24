@@ -89,7 +89,7 @@ const useQuiz = (slug?: string) => {
         
         // Record step view event for the first step
         await recordStepView('opening');
-      } catch (error: any) {
+      } catch (error: unknown) {
         console.error('Error initializing quiz session:', error);
         setQuizState(prev => ({ 
           ...prev, 
@@ -100,10 +100,10 @@ const useQuiz = (slug?: string) => {
     };
 
     initializeSession();
-  }, [slug]);
+  }, [slug, recordEvent, recordStepView, supabase]);
 
   // Generic event recording function
-  const recordEvent = async (eventType: EventType, stepId: string, additionalData: Record<string, any> = {}) => {
+  const recordEvent = async (eventType: EventType, stepId: string, additionalData: Record<string, unknown> = {}) => {
     if (!quizState.sessionId) {
       console.warn('Cannot record event: No session ID', { eventType, stepId });
       return;
